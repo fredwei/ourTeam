@@ -1,0 +1,113 @@
+<!--index.wxml-->
+<view class="page">
+    <!-- 球员信息 -->
+    <view class="player-info weui-cells">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">球衣名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入球衣名" value="{{playerInfo.shirtName}}" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">球衣号码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入球衣号码" value="{{playerInfo.shirtNo}}" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">场上位置</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindPositionChange" value="{{playerInfo.position}}" range="{{positions}}">
+                    <view class="weui-select weui-select_in-select-after">{{positions[playerInfo.position]}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">性别</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindSexChange" value="{{playerInfo.sex}}" range="{{sexs}}">
+                    <view class="weui-select weui-select_in-select-after">{{sexs[playerInfo.sex]}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">身高</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入身高" value="{{playerInfo.height}}" />
+            </view>
+            <view class="weui-cell__ft">
+                <text>cm（厘米）</text>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">体重</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入体重" value="{{playerInfo.weight}}" />
+            </view>
+            <view class="weui-cell__ft">
+                <text>kg（公斤）</text>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">惯用脚</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindFootChange" value="{{playerInfo.foot}}" range="{{foots}}">
+                    <view class="weui-select weui-select_in-select-after">{{foots[playerInfo.foot]}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手机</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入手机号码" value="{{playerInfo.phone}}" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">生日</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker mode="date" value="{{playerInfo.date}}" bindchange="bindDateChange">
+                    <view class="weui-input">{{playerInfo.date}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">地区</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{regionItem}}">
+                  <view  class="weui-select weui-select_in-select-after">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+                </picker>
+            </view>
+        </view>
+
+        <view class="weui-cell" wx:if="{{logged}}">
+            <view class="weui-cell__bd">
+              <button class="weui-btn" type="primary" bindtap="saveInfo">保存</button>
+            </view>
+        </view>
+    </view>
+
+    <view class="page-foot">
+      <navigator open-type="navigateBack" class="nav-btn" hover-class="none"><button class="weui-btn mini-btn" type="warn" size="mini">取消</button></navigator>
+      <button class="weui-btn mini-btn" type="primary" size="mini">保存</button>
+    </view>
+</view>

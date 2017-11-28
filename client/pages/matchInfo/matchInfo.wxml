@@ -1,0 +1,97 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="table-list">
+        <view class="list-title">
+          <view class="weui-cells__title">赛事管理</view>
+        </view>
+
+        <view class="list-form weui-cells">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">日期</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                      <view class="weui-input">{{date}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">时间</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+                      <view class="weui-input">{{time}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">我方</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <view class="weui-input">推土机一队</view>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">对手</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <view class="weui-input">推土机二队</view>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">球场</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入球场名称"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">进球</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <view class="weui-input">0</view>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">失球</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入失球数"/>
+              </view>
+          </view>
+        </view>
+
+        <view class="weui-flex list-head">
+            <view class="weui-flex__item"><view class="placeholder">号码</view></view>
+            <view class="weui-flex__item"><view class="placeholder">名字</view></view>
+            <view class="weui-flex__item"><view class="placeholder">进球</view></view>
+            <view class="weui-flex__item"><view class="placeholder">助攻</view></view>
+            <view class="weui-flex__item"><view class="placeholder">签到</view></view>
+        </view>
+
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">1</view></view>
+            <view class="weui-flex__item"><view class="placeholder">neo</view></view>
+            <view class="weui-flex__item"><view class="placeholder"><input class="match-input c-error" type="number" placeholder="0"/></view></view>
+            <view class="weui-flex__item"><view class="placeholder"><input class="match-input c-success" type="number" placeholder="0"/></view></view>
+            <view class="weui-flex__item"><view class="placeholder"><switch checked="{{isSwitch}}" /></view></view>
+        </view>
+    </view>
+
+    <view class="page-foot">
+      <view class="info">
+        <view>共16名队员，到场10人</view>
+        <view class="c-error">注：需点击保存按钮才能将当前页面信息保存</view>
+      </view>
+
+      <navigator open-type="navigateBack" class="nav-btn" hover-class="none"><button class="weui-btn mini-btn" type="warn" size="mini">取消</button></navigator>
+      <button class="weui-btn mini-btn" type="primary" size="mini">保存</button>
+    </view>
+</view>

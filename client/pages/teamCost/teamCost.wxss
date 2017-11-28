@@ -1,0 +1,38 @@
+/**index.wxss**/
+
+.bill-list .weui-cell__hd{
+  padding: 0 20rpx 0 0;
+}
+.bill-list .weui-cell__hd image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.bill-list .type{
+  font-size: 24rpx;
+  color: #666;
+}
+.bill-list .remark{
+  font-size: 26rpx;
+  color: #666;
+}
+.bill-list .date{
+  font-size: 24rpx;
+  color: #999;
+}
+.bill-list .weui-cell__ft{
+  color: #666;
+}
+.filter-form{
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+  font-size: 28rpx;
+}
+.info-btn{
+  padding: 15rpx 20rpx;
+  text-align: right;
+}
+.info-btn .weui-btn{
+  margin-top: 0;
+  margin-left: 20rpx;
+}

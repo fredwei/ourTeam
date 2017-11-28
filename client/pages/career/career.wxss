@@ -1,0 +1,31 @@
+/**index.wxss**/
+.bill-list{
+  margin-top: 35rpx;
+  font-size: 28rpx;
+}
+.bill-list .type{
+  font-size: 24rpx;
+  color: #666;
+}
+.bill-list .remark{
+  font-size: 26rpx;
+  color: #666;
+}
+.bill-list .date{
+  font-size: 24rpx;
+  color: #999;
+}
+.bill-list .weui-cell__ft{
+  color: #666;
+}
+.career-form{
+  font-size: 28rpx;
+}
+.info-btn{
+  padding: 15rpx 20rpx;
+  text-align: right;
+}
+.info-btn .weui-btn{
+  margin-top: 0;
+  margin-left: 20rpx;
+}

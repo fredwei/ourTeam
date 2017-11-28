@@ -1,0 +1,11 @@
+/**index.wxss**/
+.about-text{
+  padding: 35rpx 5%;
+
+  font-size: 28rpx;
+  line-height: 2;
+}
+.about-text .item{
+  margin-bottom: 15rpx;
+  text-indent: 1.5em;
+}

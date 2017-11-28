@@ -1,0 +1,14 @@
+/**index.wxss**/
+page,
+.page{
+  position: relative;
+  height: 100%;
+}
+
+.player-info{
+  width: 100%;
+  background: #FFF;
+  border-left: none;
+  border-right: none;
+  transition: all 300ms ease;
+}

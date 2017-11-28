@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="table-list">
+    <view class="list-title">
+        <view class="weui-cells__title">球队生涯<text class="tips">生涯记录由系统自动生成及手动添加</text></view>
+
+        <view class="weui-btn-box" wx:if="{{!isEdit}}">
+          <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="switchEdit">添加记录</button>
+        </view>
+        <view class="weui-btn-box" wx:if="{{isEdit}}">
+          <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="switchEdit">取消</button>
+          <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="saveInfo">保存</button>
+        </view>
+    </view>
+
+    <view class="career-form weui-cells" wx:if="{{isEdit}}">      
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">时间</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker mode="date" value="{{teamInfo.createDate}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{teamInfo.createDate}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">事件</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入事件简述" value="{{teamInfo.teamName}}" />
+          </view>
+      </view>
+
+      <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <view class="weui-label">补充</view>
+          </view>
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="补充说明" style="height: 3.3em" value="{{teamInfo.teamDes}}" />
+              <view class="weui-textarea-counter">0/200</view>
+          </view>
+      </view>
+    </view>
+  </view>    
+
+  <view wx:if="{{!isEdit}}">
+    <view class="weui-cells bill-list">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="name">加入推土机足球俱乐部<text class="type">（2017-11-23）</text></view>            
+              <view class="date">补充说明</view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

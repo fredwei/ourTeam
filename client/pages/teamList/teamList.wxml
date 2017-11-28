@@ -1,0 +1,88 @@
+<!--index.wxml-->
+<view class="page">
+  <view class="table-list">
+    <view class="list-title">
+        <view class="weui-cells__title">球队列表</view>
+
+        <view class="weui-btn-box" wx:if="{{!isEdit}}">
+          <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="switchEdit">创建球队</button>
+        </view>
+        <view class="weui-btn-box" wx:if="{{isEdit}}">
+          <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="switchEdit">取消</button>
+          <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="saveInfo">保存</button>
+        </view>
+    </view>
+
+    <view class="team-form weui-cells" wx:if="{{isEdit}}">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">队名</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入球队名称" value="{{teamInfo.teamName}}" />
+          </view>
+      </view>
+
+      <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <view class="weui-label">简介</view>
+          </view>
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" value="{{teamInfo.teamDes}}" />
+              <view class="weui-textarea-counter">0/200</view>
+          </view>
+      </view>
+      
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">建队时间</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker mode="date" value="{{teamInfo.createDate}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{teamInfo.createDate}}</view>
+              </picker>
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">队长</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入队长名称" value="{{teamInfo.teamName}}" />
+          </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">教练</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入教练名称" value="{{teamInfo.teamName}}" />
+          </view>
+      </view>
+
+      <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="备注说明补充" style="height: 3.3em" value="{{teamInfo.teamDes}}" />
+              <view class="weui-textarea-counter">0/200</view>
+          </view>
+      </view>
+    </view>
+  </view>    
+
+  <view wx:if="{{!isEdit}}">
+    <view class="weui-cells bill-list">
+        <navigator url="../teamInfo/teamInfo" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">
+              <view class="name">推土机足球俱乐部<text class="type">（12人）</text></view>            
+              <view class="date">由 fred 于 2017-11-23 创建</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+  </view>
+</view>

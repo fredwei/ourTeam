@@ -1,0 +1,8 @@
+/**index.wxss**/
+.player-info{
+  font-size: 28rpx;
+}
+
+.list-head{
+  margin-top: 35rpx;
+}

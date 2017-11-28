@@ -1,0 +1,39 @@
+/**index.wxss**/
+.table-list{
+  margin-top: 15rpx;
+}
+.team-info{
+  position: relative;
+  padding: 20rpx;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.team-name{
+  display: block;
+  margin-bottom: 5rpx;
+  font-size: 40rpx;
+}
+.team-age{
+  display: block;
+  margin-bottom: 15rpx;
+  font-size: 22rpx;
+  color: #888;
+}
+.team-des{
+  font-size: 28rpx;
+  color: #666;
+}
+.team-btn{
+  position: absolute;
+  top: 20rpx;
+  right: 10rpx;
+}
+.team-btn .weui-btn{
+  margin-top: 0;
+  margin-left: 15rpx;
+}
+
+.team-form{
+  margin-top: 0;
+  font-size: 28rpx;
+}

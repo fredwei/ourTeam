@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="table-list">
+        <view class="list-title">
+          <view class="weui-cells__title">比赛邀请</view>
+        </view>
+
+        <view class="list-form weui-cells">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">日期</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                      <view class="weui-input">{{date}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">时间</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="time" value="{{time}}" bindchange="bindTimeChange">
+                      <view class="weui-input">{{time}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                  <view class="weui-label">我方</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker bindchange="bindTeamListsChange" value="{{matchInfo.teamNo}}" range="{{TeamLists}}">
+                      <view class="weui-select weui-select_in-select-after">{{TeamLists[matchInfo.teamNo]}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">球场</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入球场名称"/>
+              </view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+                <view class="weui-label">备注</view>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="球衣颜色，比赛要求等" style="height: 3.3em" value="{{matchInfo.remark}}" />
+                <view class="weui-textarea-counter">0/200</view>
+            </view>
+          </view>
+        </view>
+    </view>
+
+    <view class="page-foot">
+      <view class="info">
+        <view></view>
+        <view class="c-error"></view>
+      </view>
+
+      <navigator open-type="navigateBack" class="nav-btn" hover-class="none"><button class="weui-btn mini-btn" type="warn" size="mini">取消</button></navigator>
+      <button class="weui-btn mini-btn" type="primary" size="mini">立即邀请</button>
+    </view>
+</view>

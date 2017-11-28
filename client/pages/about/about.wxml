@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="about-text">
+      <view class="item">本小程序是由个人开发，时间精力有限，可能会有很多不足，但是还是希望能给你的球队带来帮助。</view>
+      <view class="item">在使用过程中遇到任何问题，都可以加我微信联系我，对本小程序有任何建议的，也欢迎跟我进行反馈。</view>
+      <view class="item">我的微信号：xbfref</view>
+    </view>
+</view>

@@ -1,0 +1,131 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="filter" wx:if="{{!isEdit}}">
+      <view class="weui-flex filter-total">
+          <view class="weui-flex__item"><view class="placeholder">收入：<text class="c-success">￥{{totalInfo.income}}</text></view></view>
+          <view class="weui-flex__item"><view class="placeholder">支出：<text class="c-error">￥{{totalInfo.expenditure}}</text></view></view>
+          <view class="weui-flex__item"><view class="placeholder">余额：￥{{(totalInfo.income - totalInfo.expenditure)}}</view></view>
+          <view class="weui-flex__item">
+            <view class="placeholder">
+              <button class="weui-btn mini-btn" type="default" size="mini" bindtap="switchEdit">+记一笔</button>
+            </view>
+          </view>
+      </view>
+
+      <view class="weui-flex filter-head">
+          <view class="weui-flex__item">
+            <view class="filter-btn">
+              <picker bindchange="bindCostTypeChange" value="{{filterInfo.costType}}" range="{{costTypes}}">
+                  <view class="filter-select">{{costTypes[filterInfo.costType]}}<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="filter-btn">
+              <picker bindchange="bindCostPersonChange" value="{{filterInfo.person}}" range="{{costPersons}}">
+                  <view class="filter-select">{{costPersons[filterInfo.person]}}<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="filter-btn">
+              <picker bindchange="bindCostMatterChange" value="{{filterInfo.matter}}" range="{{costMatters}}">
+                  <view class="filter-select">{{costMatters[filterInfo.matter]}}<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view>
+              </picker>
+            </view>
+          </view>        
+      </view>
+    </view>
+
+    <view class="weui-cells bill-list" wx:if="{{!isEdit}}">
+        <view class="weui-cell">
+            <view class="weui-cell__hd"><image mode="aspectFill" src="../../style/images/add.svg"></image></view>
+            <view class="weui-cell__bd">
+              <view class="name">Neo<text class="type">（充值）</text></view>
+              <view class="remark">备注说明</view>             
+              <view class="date">2017-11-23</view>
+            </view>
+            <view class="weui-cell__ft">￥100.00</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__hd"><image mode="aspectFill" src="../../style/images/subtract.svg"></image></view>
+            <view class="weui-cell__bd">
+              <view class="name">Neo<text class="type">（充值）</text></view>
+              <view class="remark">备注说明</view> 
+              <view class="date">2017-11-23</view>
+            </view>
+            <view class="weui-cell__ft">￥500.00</view>
+        </view>
+    </view>
+
+    <view class="filter-form" wx:if="{{isEdit}}">
+      <view class="table-list">
+        <view class="list-title">
+          <view class="weui-cells__title">财务记录</view>
+
+          <view class="weui-btn-box">
+            <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="switchEdit">取消</button>
+            <button class="weui-btn mini-btn" type="primary" size="mini">保存</button>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">类型</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCostFormTypeChange" value="{{costInfo.costType}}" range="{{costFormTypes}}">
+                  <view class="weui-select weui-select_in-select-after">{{costFormTypes[costInfo.costType]}}</view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">人员</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCostFormPersonChange" value="{{costInfo.person}}" range="{{costFormPersons}}">
+                  <view class="weui-select weui-select_in-select-after">{{costFormPersons[costInfo.person]}}</view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">事项</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker bindchange="bindCostFormMatterChange" value="{{costInfo.matter}}" range="{{costFormMatters}}">
+                  <view class="weui-select weui-select_in-select-after">{{costFormMatters[costInfo.matter]}}</view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">时间</view>
+          </view>
+          <view class="weui-cell__bd">
+              <picker mode="date" value="{{costInfo.date}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{costInfo.date}}</view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">金额(￥)</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input class="weui-input" type="digit" placeholder="请输入金额" value="{{costInfo.money}}" />
+          </view>
+      </view>
+      <view class="weui-cell">
+          <view class="weui-cell__hd">
+              <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="请输入备注" style="height: 3.3em" value="{{costInfo.remark}}" />
+              <view class="weui-textarea-counter">0/200</view>
+          </view>
+      </view>
+    </view>
+</view>

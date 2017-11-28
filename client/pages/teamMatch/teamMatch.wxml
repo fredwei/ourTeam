@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="table-list">
+        <view class="list-title">
+          <view class="weui-cells__title">
+            <picker bindchange="bindMatchTypeChange" value="{{matchType}}" range="{{matchTypes}}">
+                <view class="match-select">{{matchTypes[matchType]}}<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view>
+            </picker>
+          </view>
+
+          <view class="weui-btn-box">
+            <view>
+             <text><text class="c-success">10</text>胜 </text>
+             <text><text>3</text>平 </text>
+             <text><text class="c-error">5</text>负</text>
+            </view>
+            <view>
+             <text>进<text class="c-success">10</text>球 </text>
+             <text>丢<text class="c-error">20</text>球</text>
+            </view>
+          </view>
+        </view>
+
+        <view>
+          <view class="weui-flex list-head">
+              <view class="weui-flex__item"><view class="match-select" bindtap="switchFilter">日期<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view></view>
+              <view class="weui-flex__item"><view class="placeholder">对手</view></view>
+              <view class="weui-flex__item"><view class="placeholder">球场</view></view>
+              <view class="weui-flex__item"><view class="placeholder">比分</view></view>
+          </view>
+
+          <view class="list-form weui-cells" wx:if="{{isFilter}}">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">起始日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                        <view class="weui-input">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">结束日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                        <view class="weui-input">{{date}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd filter-btn">
+                    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="switchFilter">取消</button>
+                    <button class="weui-btn mini-btn" type="primary" size="mini">确认</button>
+                </view>
+            </view>
+          </view>
+
+          <view wx:if="{{!isFilter}}">
+            <view class="weui-flex">
+                <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+                <view class="weui-flex__item"><view class="placeholder">推土机二队</view></view>
+                <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+                <view class="weui-flex__item"><view class="placeholder">3-0</view></view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+                <view class="weui-flex__item"><view class="placeholder">推土机二队</view></view>
+                <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+                <view class="weui-flex__item"><view class="placeholder">3-0</view></view>
+            </view>
+            <view class="weui-flex">
+                <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+                <view class="weui-flex__item"><view class="placeholder">推土机二队</view></view>
+                <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+                <view class="weui-flex__item"><view class="placeholder">3-0</view></view>
+            </view>
+          </view>
+        </view>
+    </view>
+</view>

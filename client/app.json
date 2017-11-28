@@ -1,0 +1,79 @@
+{
+  "pages":[
+    "pages/user/user",
+    "pages/about/about",
+    "pages/career/career",
+    "pages/teamMatch/teamMatch",
+    "pages/teamList/teamList",
+    "pages/teamInfo/teamInfo",
+    "pages/match/match",
+    "pages/matchInfo/matchInfo",
+    "pages/matchInvitation/matchInvitation",
+    "pages/teamPlayer/teamPlayer",
+    "pages/player/player",
+    "pages/teamCost/teamCost",
+
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+
+    "example/index",
+    "example/button/button",
+    "example/list/list",
+    "example/input/input",
+    "example/slider/slider",
+    "example/uploader/uploader",
+    "example/article/article",
+    "example/badge/badge",
+    "example/flex/flex",
+    "example/footer/footer",
+    "example/gallery/gallery",
+    "example/grid/grid",
+    "example/icons/icons",
+    "example/loadmore/loadmore",
+    "example/panel/panel",
+    "example/preview/preview",
+    "example/progress/progress",
+    "example/actionsheet/actionsheet",
+    "example/dialog/dialog",
+    "example/msg/msg",
+    "example/msg/msg_success",
+    "example/msg/msg_fail",
+    "example/picker/picker",
+    "example/toast/toast",
+    "example/navbar/navbar",
+    "example/tabbar/tabbar",
+    "example/searchbar/searchbar"
+  ],
+  "window":{
+    "backgroundColor":"#fdfdfd",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "我的球队",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/match/match",
+        "text": "赛事",
+        "iconPath": "style/images/match.png",
+        "selectedIconPath": "style/images/match-selected.png"
+      },
+      {
+        "pagePath": "pages/teamList/teamList",
+        "text": "球队",
+        "iconPath": "style/images/team.png",
+        "selectedIconPath": "style/images/team-selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "style/images/user.png",
+        "selectedIconPath": "style/images/user-selected.png"
+      }
+    ]
+  }
+}

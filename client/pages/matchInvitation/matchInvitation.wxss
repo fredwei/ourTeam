@@ -1,0 +1,17 @@
+/**index.wxss**/
+page,
+.page{
+  position: relative;
+  height: 100%;
+}
+
+.list-form{
+  margin-top: 0;
+}
+
+.match-input{
+  display: inline-block;
+  width: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 3rpx;
+}

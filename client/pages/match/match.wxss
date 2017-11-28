@@ -1,0 +1,9 @@
+/**index.wxss**/
+.match-select image{
+  width: 40rpx;
+  height: 20rpx;
+}
+
+.weui-flex .weui-btn{
+  width: 5em;
+}

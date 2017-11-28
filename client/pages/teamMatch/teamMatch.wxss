@@ -1,0 +1,19 @@
+/**index.wxss**/
+.match-select image{
+  width: 40rpx;
+  height: 20rpx;
+}
+
+.weui-btn-box{
+  margin-top: -15rpx;
+
+  line-height: 1.6;
+  font-size: 24rpx;
+  color: #888;
+}
+.filter-btn{
+  text-align: right;
+}
+.filter-btn .weui-btn{
+  margin: 0 0 0 15rpx;
+}

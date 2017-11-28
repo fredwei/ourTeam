@@ -1,0 +1,127 @@
+<!--index.wxml-->
+<view class="page">
+    <view class="table-list">
+        <view class="list-title">
+          <view class="weui-cells__title" wx:if="{{!isEdit}}">
+            <picker bindchange="bindMatchTypeChange" value="{{matchType}}" range="{{matchTypes}}">
+                <view class="match-select">{{matchTypes[matchType]}}<image mode="aspectFill" src="../../style/images/arrow-drop-down.svg"></image></view>
+            </picker>
+          </view>
+
+          <view class="weui-cells__title" wx:if="{{isEdit}}">新增比赛</view>
+
+          <view class="weui-btn-box" wx:if="{{!isEdit}}">
+             <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="switchEdit">新增比赛</button>
+             <navigator url="../matchInvitation/matchInvitation" class="nav-btn" hover-class="none"><button class="weui-btn mini-btn" type="warn" size="mini">快速邀请对手</button></navigator>
+          </view>
+
+          <view class="weui-btn-box" wx:if="{{isEdit}}">
+            <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="switchEdit">取消</button>
+            <button class="weui-btn mini-btn" type="primary" size="mini">保存</button>
+          </view>          
+        </view>
+
+        <view class="list-form weui-cells" wx:if="{{isEdit}}">
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">日期</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                      <view class="weui-input">{{date}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                  <view class="weui-label">赛事</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker bindchange="bindMatchFormTypesChange" value="{{matchInfo.matchType}}" range="{{matchFormTypes}}">
+                      <view class="weui-select weui-select_in-select-after">{{matchFormTypes[matchInfo.matchType]}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                  <view class="weui-label">我方</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker bindchange="bindTeamListsChange" value="{{matchInfo.teamNo}}" range="{{TeamLists}}">
+                      <view class="weui-select weui-select_in-select-after">{{TeamLists[matchInfo.teamNo]}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">对手</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入比赛对手，无则为队内赛"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">球场</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入球场名称"/>
+              </view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+                <view class="weui-label">备注</view>
+            </view>
+            <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="球衣颜色，比赛要求等" style="height: 3.3em" value="{{matchInfo.remark}}" />
+                <view class="weui-textarea-counter">0/200</view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!isEdit}}">
+          <view class="weui-flex list-head">
+              <view class="weui-flex__item"><view class="placeholder">日期</view></view>
+              <view class="weui-flex__item"><view class="placeholder">球场</view></view>
+              <view class="weui-flex__item"><view class="placeholder">对手</view></view>
+              <view class="weui-flex__item"><view class="placeholder">比分</view></view>
+              <view class="weui-flex__item"><view class="placeholder">操作</view></view>
+          </view>
+
+          <view class="weui-flex">
+              <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+              <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+              <view class="weui-flex__item"><view class="placeholder">队内赛</view></view>
+              <view class="weui-flex__item"><view class="placeholder">0-0</view></view>
+              <view class="weui-flex__item">
+                <navigator url="../matchInfo/matchInfo" hover-class="none"><button class="weui-btn mini-btn" type="default" size="mini">比赛</button></navigator>
+              </view>
+          </view>
+
+          <view class="weui-flex">
+              <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+              <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+              <view class="weui-flex__item"><view class="placeholder">队内赛</view></view>
+              <view class="weui-flex__item"><view class="placeholder">0-0</view></view>
+              <view class="weui-flex__item">
+                <navigator url="../matchInfo/matchInfo" hover-class="none"><button class="weui-btn mini-btn" type="default" size="mini">比赛</button></navigator>
+              </view>
+          </view>
+
+          <view class="weui-flex">
+              <view class="weui-flex__item"><view class="placeholder">2017-11-24</view></view>
+              <view class="weui-flex__item"><view class="placeholder">上梅林天台球场</view></view>
+              <view class="weui-flex__item"><view class="placeholder">队内赛</view></view>
+              <view class="weui-flex__item"><view class="placeholder">0-0</view></view>
+              <view class="weui-flex__item">
+                <navigator url="../matchInfo/matchInfo" hover-class="none"><button class="weui-btn mini-btn" type="default" size="mini">比赛</button></navigator>
+              </view>
+          </view>
+        </view>
+    </view> 
+
+    <!-- weui -->
+    <navigator url="../../example/index" open-type="navigate" class="uploader-text">
+        <text>weUI</text>
+    </navigator>
+</view>
